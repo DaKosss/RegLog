@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+<body>
+    <nav class="uk-navbar-container profileNav" uk-navbar>
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li><a href="/dashboard" uk-icon="icon: home"></a></li>
+                <li><a href="#" onclick="window.history.back();" uk-icon="icon: arrow-left"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="uk-container uk-margin-top">
+        <h1>User Profile</h1>
+        <% if (userDetails.avatarUrl) { %>
+            <img style="width: 200px" class="profileImg" src="/img/avatars/<%= userDetails.avatarUrl %>" alt="User Avatar" />
+
+            <form id="delete-avatar-form" action="/dashboard/profile/<%= userDetails.user._id %>/delete-avatar" method="post">
+                <button type="submit" class="uk-button uk-button-primary uk-margin-top">Удалить аватар</button>
+            </form>
+        <% } else { %>
+            <p>Аватар не загружен</p>
+        <% } %>
+        <p>Nickname: <%= userDetails.nickname %></p>
+        <p>About: <%= userDetails.about %></p>
+
+        <script>
+            const deleteForm = document.querySelector('#delete-avatar-form');
+            deleteForm.addEventListener('submit', (event) => {
+                const confirmDelete = confirm('Вы точно хотите удалить аватар?');
+                if (!confirmDelete) {
+                    event.preventDefault();
+                }
+            });
+        </script>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>

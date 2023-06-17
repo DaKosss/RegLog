@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+     <title>Вход</title>
+ </head>
+ 
+ <body style="background-color: #f5f5f5;">
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport">
+        <div class="uk-card uk-card-default uk-card-body uk-width-medium">
+          <h1 class="uk-text-center uk-text-uppercase uk-text-bold">Вход</h1>
+          <form class="uk-form-stacked" method="POST" action="/login">
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-stacked-text">Email</label>
+              <div class="uk-form-controls">
+                <input class="uk-input" id="email" type="email" name="email" required>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label" for="form-stacked-text">Пароль</label>
+              <div class="uk-form-controls">
+                <input class="uk-input" id="password" type="password" name="password" required>
+              </div>
+            </div>
+            <div class="uk-margin">
+              <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Войти</button>
+            </div>
+            <div class="uk-text-center uk-flex uk-flex-column">
+              <i>Нет аккаунта?</i>
+              <a href="/register"><b>Регистрация</b></a>
+            </div>
+          </form>
+        </div>
+      </div>
+ </body>
+</html>

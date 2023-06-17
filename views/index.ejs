@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <%- include('./header.ejs') %>
+    <div class="uk-container uk-margin-top">
+        <div class="uk-card uk-card-default uk-card-body">
+          <h1 class="uk-heading-medium uk-text-center">Главная страница</h1>
+          <p class="uk-heading-medium uk-text-center">Добро пожаловать на главную страницу!</p>
+          <div class="uk-grid uk-child-width-1-2@s uk-margin-top" uk-grid>
+            <div>
+              <div class="uk-card uk-card-primary uk-card-body">
+                <h3 class="uk-card-title">Новости</h3>
+                <p>В этом разделе мы будем публиковать последние новости и события компании.</p>
+                <a href="#" class="uk-button uk-button-text">Подробнее</a>
+              </div>
+            </div>
+            <div>
+              <div class="uk-card uk-card-primary uk-card-body">
+                <h3 class="uk-card-title">О нас</h3>
+                <p>Мы являемся лидерами в нашей области и предлагаем широкий спектр услуг для наших клиентов.</p>
+                <a href="#" class="uk-button uk-button-text">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.15/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <% include('./header.ejs') %>
+    <div class="uk-container uk-margin-top">
+        <div class="uk-card uk-card-default uk-card-body">
+            <% if (session.user && session.user.role === 'admin') { %>
+                <h1 class="uk-heading-medium uk-text-center">Hello Admin</h1>
+                <div class="uk-grid uk-child-width-1-2@s uk-margin-top" uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body">
+                            <h3 class="uk-card-title">Add User Data</h3>
+                            <p>Add data for a new user.</p>
+                            <a href="/dashboard/user-data" class="uk-button uk-button-text">Go to user data</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-primary uk-card-body">
+                            <h3 class="uk-card-title">View Profile</h3>
+                            <p>View your own profile.</p>
+                            <a href="/dashboard/profile/<%= session.user._id %>" class="uk-button uk-button-text">Go to profile</a>
+                        </div>
+                    </div>
+                </div>
+            <% } else if (session.user && session.user.role === 'user') { %>
+                <h1 class="uk-heading-medium uk-text-center">Hello User</h1>
+            <% } else { %>
+                <h1 class="uk-heading-medium uk-text-center">Please Login</h1>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

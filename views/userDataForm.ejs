@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css"/>
+</head>
+<body>
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+        <div class="uk-navbar-left uk-margin-left">
+            <a href="/dashboard" uk-icon="icon: home"></a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li><a href="/dashboard/profile/<%= session.user._id %>" class="uk-button uk-button-text">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="uk-container uk-margin-top">
+        <h1 class="uk-heading-small">Изменение профиля</h1>
+
+        <form class="uk-form-stacked" action="/dashboard/user-data" method="post" enctype="multipart/form-data">
+            <div class="uk-margin">
+                <label class="uk-form-label" for="nickname">Логин:</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" type="text" name="nickname" id="nickname" value="<%= userDetails.nickname %>"/>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="avatarUrl">Аватар:</label>
+                <div class="uk-form-controls">
+                    <div uk-form-custom="target: true">
+                        <input type="file" name="avatar" id="avatar" />
+                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Выберите файл" disabled>
+                    </div>
+                    <% if (userDetails.avatarUrl) { %>
+                        <img class="uk-margin-small-top" src="<%= userDetails.avatarUrl %>" alt="Current Avatar">
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="about">Что-то о себе:</label>
+                <div class="uk-form-controls">
+                    <textarea class="uk-textarea" name="about" id="about"><%= userDetails.about %></textarea>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <button class="uk-button uk-button-primary" type="submit">Добавить/обновить данные</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit-icons.min.js"></script>
+</body>
+</html>

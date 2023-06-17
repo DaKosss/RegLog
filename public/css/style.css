@@ -1,0 +1,17 @@
+.uk-navbar-nav>li>a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+    min-height: auto;
+  }
+  
+.uk-navbar-nav>li>a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.uk-navbar {
+    background-color: #2d2d2d;
+    min-height: 80px;
+}
